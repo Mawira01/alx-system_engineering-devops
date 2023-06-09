@@ -1,2 +1,2 @@
 #!/bin/bash
-ln -sf /boot/ls__ls_
+ln -sf /bin/ls__ls_
