@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "$ls_output" > "$filename"
+ls -la > ls_cwd_content
