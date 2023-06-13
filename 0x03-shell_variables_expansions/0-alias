@@ -1,2 +1,31 @@
 #!/bin/bash
-read -rm* "ls"
+
+# This script creates an alias in the user's shell environment
+
+# Prompt the user to enter the alias name
+read -p "Enter the alias name: " alias_name
+
+# Prompt the user to enter the command for the alias
+read -p "Enter the command for the alias: " alias_command
+
+# Get the user's shell configuration file (e.g., .bashrc, .bash_profile, .zshrc)
+shell_config_file=""
+if [[ -f "$HOME/.bashrc" ]]; then
+    shell_config_file="$HOME/.bashrc"
+elif [[ -f "$HOME/.bash_profile" ]]; then
+    shell_config_file="$HOME/.bash_profile"
+elif [[ -f "$HOME/.zshrc" ]]; then
+    shell_config_file="$HOME/.zshrc"
+else
+    echo "Unable to find the shell configuration file."
+    exit 1
+fi
+
+# Append the alias to the shell configuration file
+echo "alias $alias_name='$alias_command'" >> "$shell_config_file"
+
+# Load the updated shell configuration
+source "$shell_config_file"
+
+echo "Alias '$alias_name' has been created."
+
