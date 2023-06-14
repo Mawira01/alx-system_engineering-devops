@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "10%\n" $DECIMAL
+echo $((2#$DECIMAL))
