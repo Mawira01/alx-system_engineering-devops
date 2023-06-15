@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc.v -E "$CFILE" -o "c"
+gcc.v -E "$CFILE" -o "$c"
